@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/screens/screen2.dart';
-
-import 'screens/screen1.dart';
-import 'screens/screen3.dart';
-import 'screens/screen4.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/Data/Cubit/AllNewsCubit/cubit/all_news_cubit.dart';
+import 'package:news_app/screens/screen1.dart';
 
 void main() {
   runApp(const news_app());
@@ -14,6 +12,16 @@ class news_app extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: ScreenOne());
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AllNewsCubit>(
+          create: (BuildContext context) => AllNewsCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: FirScreen(),
+      ),
+    );
   }
 }

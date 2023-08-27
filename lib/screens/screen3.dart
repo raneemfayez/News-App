@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ScreenThree extends StatelessWidget {
-  const ScreenThree({super.key});
+  const ScreenThree(
+      {super.key,
+      required this.author,
+      required this.description,
+      required this.imagrUrl,
+      required this.content});
+  final String author;
+  final String content;
+  final String description;
+  final String imagrUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +24,7 @@ class ScreenThree extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 400 / 812,
               width: MediaQuery.of(context).size.width,
               child: Image.network(
-                "https://s3-alpha-sig.figma.com/img/1b25/3b61/593c0eac981b4da390568868d72bc803?Expires=1693180800&Signature=qG2VjKuWKcttyBAZ4v0LfigBwXfDNKA4tTFBNNGexBkqWyj0duB8j8TxEIISOFOlMrxBDmNBqdBWQ2ufCuT6UYYAbiUtcdCMLkN6T36ibcgsfLeaQbNKMcyvMabDi53RHJbfdKWjEy82tjjXLy28iFn2Re~mVi5CNtaZd63UVUmqWGSS3yWul9FrrEcpz9PiKU-4TNlieahU42yvFOmOuZAyD3IhqnYqPfzry2OEwbnzHnpn~TBxZZdbU~m4pdexhy~nWgCS8wJSJbXVHLVKr05I5fkIW7A6jhRsenj-fk~eDVp3XH-IoHz26GpnsvzpWGPbLeO0~SotdVkBmpmviQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+                "$imagrUrl",
                 fit: BoxFit.cover,
               ),
             ),
@@ -33,24 +42,22 @@ class ScreenThree extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Column(children: [
-                Text(
-                    "LONDON — Cryptocurrencies “have no intrinsic\n value” and people who invest in them should be\n prepared to lose all their money, Bank of England\n Governor Andrew Bailey said."),
+                Text("$description"),
                 SizedBox(
                   height: 20,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0),
-                  child: Text(
-                      "Digital currencies like bitcoin, ether and even dogecoin\n have been on a tear this year, reminding some\n investors of the 2017 crypto bubble in which bitcoin\n blasted toward 20,000, only to sink as low as 3,122\n a year later."),
+                  child: Text("$content"),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: Text(
-                      " Asked at a press conference Thursday about the\n rising value of cryptocurrencies, Bailey said: “They\n have no intrinsic value. That doesn’t mean to say\n people don’t put value on them, because they can\n have extrinsic value. But they have no intrinsic value"),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(left: 25.0),
+                //   child: Text(
+                //       " Asked at a press conference Thursday about the\n rising value of cryptocurrencies, Bailey said: “They\n have no intrinsic value. That doesn’t mean to say\n people don’t put value on them, because they can\n have extrinsic value. But they have no intrinsic value"),
+                // ),
               ]),
             ),
           ),
@@ -69,7 +76,7 @@ class ScreenThree extends StatelessWidget {
                   children: [
                     RichText(
                       text: TextSpan(
-                        text: 'Sunday, 9 May 2021\n',
+                        // text: 'Sunday, 9 May 2021\n',
                         style: TextStyle(color: Colors.black, fontSize: 12),
                         children: [
                           TextSpan(
@@ -81,7 +88,7 @@ class ScreenThree extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: 'Published by Ryan Browne',
+                            text: 'Published by $author',
                             style: TextStyle(color: Colors.black, fontSize: 12),
                           ),
                         ],
